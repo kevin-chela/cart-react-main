@@ -228,16 +228,16 @@ const showAlert = (show = false, type = '', icon = '', msg = '') => {
 
                     <hr className="mt-3"/>
 
-                    <div className="d-flex justify-content-between align-items-center mt-3 mb-5">
+                    <div className="d-flex justify-content-between align-items-center mt-3 mb-4">
                       <div>
                         <p className="mb-1">Shopping cart</p>
                         {zeroCart ? (
                           <>
-                          <p className="mb-0">You have 0 items in your cart</p>
+                          <p className="mt-3">You have 0 items in your cart</p>
                           
                           </>
                         ):(
-                        <p className="mb-0">You have {amount} items in your cart</p>
+                        <p className="mt-3">You have {amount} items in your cart</p>
                         )}
                       </div>
                       <div>
@@ -253,24 +253,32 @@ const showAlert = (show = false, type = '', icon = '', msg = '') => {
                       </div>
                     </div>
 
-                    <div>
+                    <hr className="mb-4"/>
+
+                    {cart.length > 0 ? 
+
+                     <div>
                       
-                    {cart.map((item) => {
-                      return <CartItem key={item.id} {...item} />
+                     {cart.map((item) => {
+                       return <CartItem key={item.id} {...item} />
+                       
+                     })}
+ 
+                     
+ 
+                     <MDBBtn className="mt-5" color="danger" block size="lg" onClick={clearCart}>
+                         
+                         <span>
+                         <MDBIcon fas icon="trash-alt" /> &nbsp;
+                           CLEAR CART{" "}
+                         </span>
                       
-                    })}
+                     </MDBBtn>
+                     </div>
+
+                    : <div className="mt-5"><img src={empty} style={{marginLeft: '20%'}} width="300px"/></div>}
 
                     
-
-                    <MDBBtn className="mt-5" color="danger" block size="lg" onClick={clearCart}>
-                        
-                        <span>
-                        <MDBIcon fas icon="trash-alt" /> &nbsp;
-                          CLEAR CART{" "}
-                        </span>
-                     
-                    </MDBBtn>
-                    </div>
                     
   
                   </MDBCol>
