@@ -75,8 +75,6 @@ const showAlert = (show = false, type = '', icon = '', msg = '') => {
   const [centredModal, setCentredModal] = useState(false)
   const toggleShow = () => setCentredModal(!centredModal)
 
-
-
    //Inputs
 
    const [productname, setproductName] = useState('')
